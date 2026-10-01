@@ -1,12 +1,5 @@
-FROM python:3.12
+FROM httpd:2.4
 
-WORKDIR /app
-
-COPY requirements.txt .
-
-RUN pip install --no-cache-dir -r requirements.txt
-
-COPY . .
+COPY index.html /usr/local/apache2/htdocs/index.html
 
 EXPOSE 80
-CMD ["python", "manage.py", "runserver", "0.0.0.0:80"]
